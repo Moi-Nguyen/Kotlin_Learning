@@ -3,7 +3,9 @@ fun main(){
     val cupcake: (Int) -> String ={ cupcake -> "$cupcake cupcakes"}
     val trickFunction = trickOrTreat(true, null)
     val treatFunction = trickOrTreat (false) {"$it quarters"}
+    repeat(4){
     trickFunction()
+    }
     treatFunction()
 }
 fun trickOrTreat(isTrick: Boolean, extraTreat: ((Int) -> String)?): () -> Unit {
