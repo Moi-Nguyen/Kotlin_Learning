@@ -50,6 +50,30 @@ open class Song(
         }
     }
 }
+class Person(
+    val name: String,
+    val age: Int,
+    val hobby: String?,
+    val referer: Person?
+) {
+    fun showProfile() {
+        println("Name: $name")
+        println("Age: $age")
+        if (hobby != null) {
+            print("Likes to $hobby")
+        } else {
+            print("Don't have a hobby")
+        }
+        if (referer != null) {
+            println(". Has a referer ${referer.name}")
+            if (referer.hobby != null) {
+                println(" and likes to ${referer.hobby}")
+            } else {
+                print("Doesn't have a referrer")
+            }
+        }
+    }
+}
 fun main(){
     val morningNotification = 15
     val eveningNotication = 155
@@ -78,6 +102,10 @@ fun main(){
     song1.checkPopularity()
     song2.checkPopularity()
     println("---------------------------------------------------")
+    val person1 = Person("Alice", 25, "painting",null)
+    val person2 = Person("Bob", 30, null, person1)
+    person1.showProfile()
+    person2.showProfile()
 
 }
 
